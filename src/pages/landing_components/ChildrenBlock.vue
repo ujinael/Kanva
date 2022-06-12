@@ -1,31 +1,38 @@
 <template>
-<div>
-    <h1>Ка&vа для детей:</h1>
-  <div class="cards">
+<VBLock
+:label="'КANVA для детей:'"
+>
+ <div class="cards">
    <Card v-for="(item, index) in cards" :key="index"
-   :image-title="'children_image_1'"
+   :image-title="item.imgTitle"
    :card-title="item.title"
    :card-description="item.description"
+   :link="item.link"
    /> 
   </div>
-</div>
+</VBLock>
+  
 </template>
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
 import Card from '../../components/Card.vue';
-const cards = [
-    {title:'Очный курс живописи и рисунка'
-    ,description:'Занятия по рисованию в Иркутске! 1 раз в неделю 2 часа. Создаём собственную книгу-учебник со всеми базовыми техниками. Все материалы профессионального качества включены в стоимость и ждут вас в школе'}
-    ,{title:'Рисование для детей ONLINE'
-    ,description:'Занятия в онлайне с опытным преподавателем. Для детей 5-12 лет, используем базовые материалы, которые есть в доме у каждого. 1 раз в неделю в течении часа'}
-] 
+import { useChildrenStore } from '../../stores/useChildrenStore';
+import VBLock from '../../components/VBLock.vue';
+const store = useChildrenStore()
+const {cards} = storeToRefs(store)
 </script>
 <style scoped lang="scss">
-h1{
- padding-bottom: 1rem;   
-}
+
+
 .cards{
 display: grid;
-grid-template-columns: 1fr 1fr; 
 justify-items: center;   
+gap: 1rem;
+
 }
+ @media(min-width: 599px){
+.cards{
+grid-template-columns: 1fr 1fr; 
+}
+ }
 </style>

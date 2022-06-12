@@ -30,33 +30,38 @@ description:string
 .card{
 width: 100%;
 display: grid;
-grid-template-columns: 1fr 1fr;
-
 }
 img{
-width: 60%;
+width: 100%;
 height: auto;   
 border-radius: .4rem; 
 } 
+.positions{
+font-size: large;    
+color: rgb(43, 42, 42);
+padding: 1rem;
+}
 h2{
-font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 font-weight:normal;
 }
 
-.content{
-    color: black;
-  /* text-align: left; */
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-font-weight: 200;
-font-size: larger;
-line-height: 1.5rem;
-}
+
 .description{
       color: black;
   text-align: left;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-font-weight: 200;
-font-size: larger;
-line-height: 2rem; 
+line-height: 1.4rem; 
+font-size: medium;
+}
+@media(min-width: 599px){
+    img{
+        width: 80%;
+    }
+.card{
+grid-template-columns: 1fr 1fr;
+}
+.description{
+font-size: large;
+line-height: 2rem;
+}
 }
 </style>

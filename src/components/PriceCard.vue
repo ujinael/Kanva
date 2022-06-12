@@ -9,7 +9,6 @@
 </h2>
 </div>
 <div class="descriptions">
-    <hr>
 <div class="description" v-for="(desc, index) 
 in item.descriptions"
  :key="index">
@@ -31,18 +30,19 @@ item:{label:string,descriptions:string[],coast:string}
 </script>
 <style scoped>
 hr{
-border-top: 1.5px solid whitesmoke;
+border-top: 1.5px solid gray;
 border-bottom: none;
 }
 .card{
-    background-color: rgb(231,190,138);
-
-/* border-right: 1.5px solid whitesmoke;  */
-padding: 0 2rem;   
-display: flex;
+background: linear-gradient(rgb(249, 230, 206), rgb(212, 162, 95));
+box-shadow: .2rem .2rem .4rem rgb(161, 122, 50);
+box-sizing: border-box;
+border-radius: .4rem;
+padding: 1rem 2rem;   
+display: grid;
+grid-template-rows: min-content 1fr auto 2rem;
 flex-direction: column;
 justify-content: space-between;
-/* height: 100%; */
 }
 img{
 width: 6rem;
@@ -50,28 +50,29 @@ height: auto;
 }
 h2{
 color: black;
-font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+font-size: large;
 }
-/* .descriptions{
-    height: 80px;
-} */
+
+
+.title{
+border-bottom: 1.5px solid gray;
+padding-bottom: 1rem;
+}
 .description{
-    /* width: 12rem; */
     box-sizing: border-box;
-    border-bottom: 1.5px solid whitesmoke;
+    border-bottom: 1.5px solid gray;
     padding:.5rem 0;
         color: black;
-  /* text-align: left; */
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-font-weight: 200;
-font-size: larger;
+font-size: medium;
 line-height: 1.5rem;
 }
 
 .coast{
             color: black;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-font-weight:500;
+font-weight:1000;
 font-size: larger;
+}
+@media(min-width: 599px){
+
 }
 </style>

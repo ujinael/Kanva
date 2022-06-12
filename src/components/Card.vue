@@ -1,7 +1,7 @@
 <template>
 <div class="info-card">
     <div class="card_image">
-        <img src="@/assets/children_image_1.jpeg" alt="">
+        <img :src="getURL(imageTitle)" alt="">
     </div>
 <div class="card_title">
     <h2>{{cardTitle}}</h2>
@@ -10,42 +10,64 @@
     <span>
         {{cardDescription}}
     </span>
-    <div class="card_action">
+ 
+</div> 
+  <div class="card_action">
         <slot>
-            <VButton :color="'blue'">Подробнее</VButton>
+            <VLink :href="link" :color="'blue'">Подробнее</VLink>
         </slot>
     </div>
 </div>
-</div>
 </template>
 <script setup lang="ts">
-import VButton from './VButton.vue';
+import VLink from './VLink.vue';
 const props = defineProps<{
 imageTitle:string,
 cardTitle:string,
-cardDescription:string
+cardDescription:string,
+link:string
 }>()
+const getURL = (title:string)=>{
+    return new URL(`../assets/${title}`,import.meta.url).href
+}
 </script>
-<style scoped>
+<style scoped lang="scss">
 .info-card{
-    position: relative;
-height: 650px;
-width:500px;
-background-color: white;    
-padding: .8rem;
-border-radius: .2rem;
-box-shadow: .2rem .2rem .2rem brown;
+width:100%;
+background-color: antiquewhite;    
+display: grid;
+height: 100%;
+border-radius: .4rem;
+box-shadow: .0rem .2rem .6rem rgb(175, 146, 146);
 }
 img{
-width: 430px;
-height: 430px;    
+width: 100%;
+height: auto;  
+border-top-left-radius: .4rem;
+border-top-right-radius: .4rem;
+
 }
 .card_action{
-   position: absolute;
+    align-self: flex-end;
+    padding:.9rem 0;
    bottom: 1rem; 
    left: 0px;
    width: 100%;
    display: flex;
    justify-content: center;
+}
+h2,.card_description{
+   font-size: medium;
+line-height: 1.2rem;
+padding: .4rem;
+}
+@media(min-width:599px){
+.info-card{
+    width:430px;
+}
+img{
+width: 100%;
+height: auto;    
+}
 }
 </style>

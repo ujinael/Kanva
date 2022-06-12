@@ -1,31 +1,21 @@
 <template>
-<div>
-    <h1>
-  Наши преподаватели:  
-</h1>
-<div class="block">
-    <EmployerCard v-for="(item, index) in teachers" :key="index" 
+<VBLock :label="'Наши преподаватели:'">
+ <EmployerCard v-for="(item, index) in employers" :key="index" 
     :label="item.label"
     :positions="item.positions"
     :description="item.description"
     />
-</div>
-</div>
-
+</VBLock>
 </template>
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
 import EmployerCard from '../../components/EmployerCard.vue';
-const teachers = [
-{
-label:'Корсакова Ангелина Руслановна',
-positions:'преподаватель, методист, автор курсов',
-description:'\"Здраствуйте, друзья! Ведь всех, кто интересуется творчеством я готова назвать другом.\nМоя мечта - помочь каждому желающему получать удовольствие от создания своих работ. Когда что-то не получается и взрослые, и дети ведут себя одинаково - им это не нравится. Суть моей методики заключается в том, что бы научить простым базовым правилам, используя которые, вам начнёт нравится не только процесс, но и результат! Сама я так же пишу картины, училась этому всю свою жизнь и знаю как помочь с этим другим! Мой опыт работы с детьми уже более 6 лет, я имею художественное и педагогическое образование, проработав в 5 разных школах я почувствовала потребность в создании собственного авторского курса, который будет гармонично сочетать обучение, творчество и помогать достигать собственных результатов!\"'
-}]
+import VBLock from '../../components/VBLock.vue';
+import { useEmployersStore } from '../../stores/useEmployersStore';
+const store = useEmployersStore()
+const {employers} = storeToRefs(store)
+
 </script>
-<style scoped>
-.block{
-width: 100%;
-padding: 2rem;  
-box-sizing: border-box;  
-}
+<style scoped lang="scss">
+
 </style>

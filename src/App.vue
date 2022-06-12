@@ -48,19 +48,36 @@ const route = useRoute()
 --min-row-height:calc(var(--line-height) + var(--fieldset-bottom-padding) + var(--fieldset-top-padding));
 }
 * {
+  
+    scroll-behavior: smooth;
+
  margin:0;
  padding: 0;
  /* @import '@/assets/base.css'; */
+}
+h1,h3{
+  padding-bottom: .5rem;
+  font-family: 'Caveat', cursive;
+}
+h1,h2{
+    font-size: larger;
+    /* font-family: Arial, Helvetica, sans-serif; */
 
- /* box-sizing: border-box;  */
+line-height: 1.4rem;
+  color: black;
 }
 #app {
-   /* background-color:rgb(231,190,138); */
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+color: black;
+font-family:'Source Code Pro', monospace;
+font-weight: 200;
+font-size: larger;
+line-height: 1.5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  scroll-behavior: smooth;
+
 }
 
 

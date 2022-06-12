@@ -22,16 +22,20 @@ description:string
 </script>
 <style scoped>
 .ico{
+  color: black;
+fill-rule:nonzero;
+fill: black;
 width: 2.9rem;
 height: auto;
 }
 h3{
-font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-font-weight:normal;
+  color: black;
+font-weight:n
+ormal;
 }
 .benefit{
 text-align:left;
-font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: medium;
 font-weight: lighter;
 display: grid;
 grid-template-columns: min-content 1fr;

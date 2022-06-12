@@ -1,11 +1,11 @@
 <template>
-<div class="block">
-    <h1>Обратная связь:</h1>
-    <VForm/>
-</div>
+<VBLock :label="'Обратная связь:'">
+ <VForm/>
+</VBLock>
 </template>
 <script setup lang="ts">
 import VForm from '../../components/VForm.vue';
+import VBLock from '../../components/VBLock.vue';
 
 </script>
 <style scoped>

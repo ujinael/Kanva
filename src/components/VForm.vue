@@ -1,24 +1,28 @@
 <template>
 <div class="form_body">
- <form>
+ <form @submit.prevent="onSubmit" action="https://formsubmit.co/1d373bb13e600438693e6e09d18c5a14" ref="form" method="POST">
     <label>Как к вам обращаться:
         </label>  
-               <input placeholder="ФИО">
-
+           <VInput v-model="store.name" type="text" placeholder="ФИО" required/>
      <label>Телефон:
          </label>   
-               <input placeholder="+7(XXX)XXX-XX-XX"
-               type="tel"
-               >
-
-     <VButton>Отправить</VButton>
+            <VInput v-model="store.phone" type="tel" placeholder="+7(XXX)XXX-XX-XX" required/>
+     <VButton :color="'pinky'" :disable="store.formDisabled" type="submit">Отправить</VButton>
  </form>   
 </div>
 </template>
 <script setup lang="ts">
+import { ref } from 'vue';
 import VButton from './VButton.vue';
-// defineProps<{
-// }>()
+import VInput from './VInput.vue';
+import { useFormStore } from '../stores/useFormStore';
+const form = ref<HTMLFormElement>()
+const store = useFormStore()
+const onSubmit = async ()=>{
+    if(form && !store.formDisabled){
+     store.formSubmit()
+    }
+}
 </script>
 <style scoped>
 .form_body{
@@ -27,36 +31,18 @@ border-radius: .4rem;
 box-shadow: .2rem .2rem .4rem rgb(193, 161, 148);
 }
 form{
-    padding: .5rem;
     display: grid;
 grid-auto-flow: row;
 gap: .5rem;
 justify-items: center;
+padding-bottom: 1rem;
 }
 label{
  text-align: left;   
     color: black;
-  /* text-align: left; */
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-/* font-weight: 200; */
 font-size: larger;
 line-height: 1.5rem;
 }
-input{
-    border-radius: .4rem;
-    box-sizing: border-box;
-    background-clip: padding-box;
-    padding: 1.25rem .5rem;
-font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-font-size: large;
 
-width: 30rem;
-height: 2rem;
-border: 2px solid bisque;
-}
-input:focus{
-outline: none;
-border-color: lightsalmon;
-transition: all 250ms ease-in-out;
-}
 </style>
